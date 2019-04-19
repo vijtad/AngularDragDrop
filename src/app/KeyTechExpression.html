@@ -1,0 +1,15 @@
+<div class="example-list" cdkDropList id="list-one"  [cdkDropListConnectedTo]="['list-two'] " (cdkDropListDropped)="drop($event)">
+    <h2>Expression Generator (Basic Functionality of Drag and Drop using Angular 7.0)</h2>
+    <div class= 'example-expression' 
+    [innerHTML] =  "expression[0]  | safe: 'html'">
+  </div>
+</div>
+    <div cdkDropList  id="list-two" [cdkDropListConnectedTo]="['list-one']"  (cdkDropListDropped)="drop($event)">
+    <div class="example-box_1"  *ngFor="let item of functions  let i = index" cdkDrag>
+    <div ><i class=material-icons>{{item.icon}}</i> {{item.operator}}
+      <p *cdkDragPreview  [innerHTML] =  "item.func  | safe: 'html'"></p> 
+    </div>
+
+</div>
+</div>
+
